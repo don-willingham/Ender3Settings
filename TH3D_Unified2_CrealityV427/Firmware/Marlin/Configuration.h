@@ -22,7 +22,7 @@
 
 //#define ENDER2         // NEEDS TESTING. DO NOT USE UNLESS TH3D SUPPORT SAYS TO.
 //#define ENDER2_PRO     //Requires Motor Adapter Cable from TH3D due to stock connections using 5 pins
-//#define ENDER3
+#define ENDER3
 //#define ENDER3_PRO
 //#define ENDER3_NEO
 //#define ENDER3_MAX
@@ -71,7 +71,7 @@
 //#define ENDER6_OEM
 //#define ENDER6_PETSFANG //Source: https://support.th3dstudio.com/helpcenter/ender-6-5015-ezabl-petsfang-mount/
 //#define SPRITE_EXTRUDER_18MM_MOUNT // Mounts to the stock CRTouch bracket
-//#define CUSTOM_PROBE
+#define CUSTOM_PROBE
 
 // Ender 3 NEO Series/Ender 3 V2 LCD - LCD Setting
 // If you converted your Ender 3 NEO Series OR V2 LCD to the 12864 Version, Uncomment the below line.
@@ -164,7 +164,8 @@
   * If the probe is left of the nozzle the offset on X is NEGATIVE
   * If the probe is in front of the nozzle the offset on Y is NEGATIVE
   */
-  #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+  //#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+  #define NOZZLE_TO_PROBE_OFFSET { -44, -9, 0 }
 #endif
 
 
@@ -327,9 +328,9 @@
 // There are 2 ways to connect the BL Touch to the V4.2.X boards - All on the 5 pin header or using 3 pins on the 5 pin header + Z Endstop port
 // For details on these 2 types of connections refer to our help center article here: https://support.th3dstudio.com/helpcenter/creality-v4-2-2-v4-2-7-board-bl-touch-wiring-options/
 // If you want to use the BL-Touch uncomment the BLTOUCH line below and uncomment #define CUSTOM_PROBE above and then enter in your offsets above in the CUSTOM PROBE section.
-//#define BLTOUCH
+#define BLTOUCH
 // If you are using the 5 pin header for all the BL Touch connections, uncomment the below line
-//#define BLTOUCH_ON_5PIN
+#define BLTOUCH_ON_5PIN
 
 // MANUAL MESH LEVELING ----------------------------
 // If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe.
