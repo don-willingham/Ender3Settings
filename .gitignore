@@ -33,3 +33,4 @@ TH3D_Unified2_CrealityV427/Firmware/Makefile
 *.py
 *.yml
 *.zip
+.*.swp

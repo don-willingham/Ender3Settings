@@ -6,7 +6,9 @@
 //======================= DO NOT MODIFY THIS FILE ===========================
 //===========================================================================
 
-#define UNIFIED_VERSION "TH3D UFW 2.77"
+#ifndef UNIFIED_VERSION
+  #define UNIFIED_VERSION "TH3D UFW 2.83a"
+#endif
 
 /**
  * ABL Probe Settings
@@ -15,7 +17,15 @@
 #if ENABLED(CUSTOM_PROBE)
   #define ABL_ENABLE
 #endif
-#if ENABLED(SV01_PRO_EZABL_OEM_MOUNT)
+#if ENABLED(ENDER5_S1_OEM)
+  #define ABL_ENABLE
+  #define NOZZLE_TO_PROBE_OFFSET { -35, -2, 0 }
+#endif
+#if ENABLED(KP3S_PRO_OEM_MOUNT)
+  #define ABL_ENABLE
+  #define NOZZLE_TO_PROBE_OFFSET { -54, -9, 0 }
+#endif
+#if ANY(SV01_PRO_EZABL_OEM_MOUNT, SV05_EZABL_OEM_MOUNT)
   #define ABL_ENABLE
   #define NOZZLE_TO_PROBE_OFFSET { 43, 5, 0 }
 #endif
@@ -79,7 +89,7 @@
   #define ABL_ENABLE
   #define NOZZLE_TO_PROBE_OFFSET { -40, -14, 0 }
 #endif
-#if ENABLED(ENDER3_MAX_OEM)
+#if ANY(ENDER3_MAX_OEM,CRX_PRO_OEM)
   #define ABL_ENABLE
   #define NOZZLE_TO_PROBE_OFFSET { 57, -9, 0 }
 #endif
@@ -307,8 +317,8 @@
     #define Z_MIN_PROBE_ENDSTOP_INVERTING false
     #undef Z_MIN_ENDSTOP_INVERTING
     #define Z_MIN_ENDSTOP_INVERTING false
-  #elif (ENABLED(CR10S_PRO_STOCK_ABL) && ENABLED(CR10S_PRO)) || ANY(ENDER3_S1, ENDER3_S1_PRO, ENDER3_S1_PLUS) || (ANY(SOVOL_SV06, SOVOL_SV06_PLUS) && DISABLED(SV06_EZABL_INSTALLED))
-    //Ender 3 S1 J713 header for Z Endstop is reverse logic via hardware for some reason. Need to invert the EZABL logic for it here.
+  #elif (ENABLED(CR10S_PRO_STOCK_ABL) && ENABLED(CR10S_PRO)) || ANY(ENDER3_S1, ENDER3_S1_PRO, ENDER3_S1_PLUS, ENDER5_S1) || (ANY(SOVOL_SV06, SOVOL_SV06_PLUS) && DISABLED(SV06_EZABL_INSTALLED))
+    //Ender 3 S1 & 5 S1 J713 header for Z Endstop is reverse logic via hardware for some reason. Need to invert the EZABL logic for it here.
     #undef Z_MIN_PROBE_ENDSTOP_INVERTING
     #define Z_MIN_PROBE_ENDSTOP_INVERTING false
     #undef Z_MIN_ENDSTOP_INVERTING
@@ -353,6 +363,10 @@
 
 #if ENABLED(BLTOUCH) && DISABLED(CUSTOM_PROBE)
   #error "You must uncomment the CUSTOM_PROBE option in the EZABL probe mount section and then enter your mount offsets into the Custom Probe section."
+#endif
+
+#if ENABLED(BLTOUCH_ON_5PIN) && DISABLED(BLTOUCH)
+  #error "You must also uncomment the #define BLTOUCH line when using the BLTOUCH_ON_5PIN option."
 #endif
 
 #if BOTH(BTT_TOUCH_SCREEN, ABL_ENABLE)

@@ -1573,7 +1573,7 @@
 #endif // HAS_MARLINUI_MENU
 
 #if ANY(HAS_DISPLAY, DWIN_LCD_PROUI, DWIN_CREALITY_LCD_JYERSUI)
-  //#define SOUND_MENU_ITEM   // Add a mute option to the LCD menu
+  #define SOUND_MENU_ITEM     // Add a mute option to the LCD menu
   #define SOUND_ON_DEFAULT    // Buzzer/speaker default enabled state
 #endif
 
@@ -1582,7 +1582,7 @@
   #define LCD_TIMEOUT_TO_STATUS 10000   // (ms)
 
   #if ENABLED(SHOW_BOOTSCREEN)
-    #define BOOTSCREEN_TIMEOUT 2000      // (ms) Total Duration to display the boot screen(s)
+    #define BOOTSCREEN_TIMEOUT 1000      // (ms) Total Duration to display the boot screen(s)
     #if EITHER(HAS_MARLINUI_U8GLIB, TFT_COLOR_UI)
       #define BOOT_MARLIN_LOGO_SMALL      // Show a smaller Marlin logo on the Boot Screen (saving lots of flash)
     #endif
@@ -2578,14 +2578,12 @@
 
 // The number of linear moves that can be in the planner at once.
 // The value of BLOCK_BUFFER_SIZE must be a power of 2 (e.g., 8, 16, 32)
-#if BOTH(SDSUPPORT, DIRECT_STEPPING)
+#if BOTH(SDSUPPORT, DIRECT_STEPPING) || ALL(SPACE_SAVER_2560, INPUT_SHAPING)
   #define BLOCK_BUFFER_SIZE  8
-#elif ALL(SPACE_SAVER_2560, INPUT_SHAPING)
+#elif ENABLED(SPACE_SAVER_2560)
   #define BLOCK_BUFFER_SIZE 16
-#elif ENABLED(SDSUPPORT)
-  #define BLOCK_BUFFER_SIZE 32
 #else
-  #define BLOCK_BUFFER_SIZE 16
+  #define BLOCK_BUFFER_SIZE 32
 #endif
 
 // @section serial
@@ -3166,11 +3164,11 @@
   
   #if ANY(EZBOARD, EZBOARD_V2, SKR_E3_MINI_BOARD, DIY_TMCBOARD, SKR_E3_MINI_V3_0, SOVOL_SV06, SOVOL_SV06_PLUS, E3FREERUNS)
     #if ENABLED(PANCAKE_STEPPER)
-      #define E0_CURRENT    550
+      #define E0_CURRENT    500
     #elif E0_MOTOR_CURRENT > 0
       #define E0_CURRENT E0_MOTOR_CURRENT
     #else
-      #define E0_CURRENT    650
+      #define E0_CURRENT    600
     #endif
     
     #define E0_MICROSTEPS    16
@@ -3186,11 +3184,11 @@
 
   #if AXIS_IS_TMC_CONFIG(E1) || ENABLED(DIY_TMCBOARD)
     #if ENABLED(PANCAKE_STEPPER)
-      #define E1_CURRENT    600
+      #define E1_CURRENT    500
     #elif E0_MOTOR_CURRENT > 0
       #define E1_CURRENT E1_MOTOR_CURRENT
     #else
-      #define E1_CURRENT    800
+      #define E1_CURRENT    600
     #endif
     #define E1_MICROSTEPS    E0_MICROSTEPS
     #define E1_RSENSE         0.11
