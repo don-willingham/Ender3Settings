@@ -6,7 +6,7 @@
 //======================= DO NOT MODIFY THIS FILE ===========================
 //===========================================================================
 
-#define UNIFIED_VERSION "TH3D UFW 2.75a"
+#define UNIFIED_VERSION "TH3D UFW 2.77"
 
 /**
  * ABL Probe Settings
@@ -260,7 +260,9 @@
   #define Z_PROBE_OFFSET_RANGE_MAX     1
   
   #define Z_MIN_PROBE_REPEATABILITY_TEST
-  #define Z_AFTER_HOMING               5
+  #if NONE(BLTOUCH)
+    #define Z_AFTER_HOMING             5
+  #endif
   #define Z_PROBE_LOW_POINT           -10
   
   #if NONE(BLTOUCH)
@@ -506,6 +508,8 @@
 #else
   #if ENABLED(EZBOARD_DIY)
     #define CUSTOM_MACHINE_NAME "EZBoard DIY"
+  #elif ALL(BLTOUCH, CRTOUCH_PROBE_NAMING)
+    #define CUSTOM_MACHINE_NAME "TH3D CRTouch"
   #elif ENABLED(BLTOUCH)
     #define CUSTOM_MACHINE_NAME "TH3D BLTouch"
   #elif ENABLED(ABL_ENABLE) && DISABLED(BLTOUCH)
@@ -561,7 +565,7 @@
 #endif
 
 #if ENABLED(BLTOUCH)
-  #define Z_CLEARANCE_DEPLOY_PROBE   8
+  #define Z_CLEARANCE_DEPLOY_PROBE   5
   #define Z_CLEARANCE_BETWEEN_PROBES 5
   #define Z_CLEARANCE_MULTI_PROBE    5
   #define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 2)
@@ -654,6 +658,8 @@
   #define SHOW_BOOTSCREEN
   #define SHOW_CUSTOM_BOOTSCREEN
 #endif
+
+#define USE_BIG_EDIT_FONT
 
 #if DISABLED(DWIN_CREALITY_LCD)
   #define INDIVIDUAL_AXIS_HOMING_MENU

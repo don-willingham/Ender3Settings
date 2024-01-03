@@ -747,7 +747,7 @@
  * the fan will turn on when any selected extruder is above the threshold.
  */
 #ifndef E0_AUTO_FAN_PIN
-  #if ANY(TORNADO, TARANTULA_PRO, SIDEWINDER_X1, SUNLU_S8_SH_2560_BOARD) || (ENABLED(EZ300_OEM_MOUNT) && ENABLED(ARTILLERY_AL4))
+  #if ANY(TORNADO, TARANTULA_PRO, SIDEWINDER_X1, SUNLU_S8_SH_2560_BOARD, SUNLU_S8_PRO) || (ENABLED(EZ300_OEM_MOUNT) && ENABLED(ARTILLERY_AL4))
     #define E0_AUTO_FAN_PIN 7
   #elif ENABLED(MKS_MONSTER_8_V2_FAN2)
     #define E0_AUTO_FAN_PIN PA0
@@ -1239,9 +1239,7 @@
   #endif
   //#define SHAPING_MIN_FREQ  20        // By default the minimum of the shaping frequencies. Override to affect SRAM usage.
   //#define SHAPING_MAX_STEPRATE 10000  // By default the maximum total step rate of the shaped axes. Override to affect SRAM usage.
-  #if DISABLED(SPACE_SAVER_2560)
-    #define SHAPING_MENU                // Add a menu to the LCD to set shaping parameters.
-  #endif
+  #define SHAPING_MENU                // Add a menu to the LCD to set shaping parameters.
 #endif
 
 #define AXIS_RELATIVE_MODES { false, false, false, false }
@@ -1522,7 +1520,7 @@
 //#define LCD_BACKLIGHT_TIMEOUT_MINS 1  // (minutes) Timeout before turning off the backlight
 
 #if HAS_BED_PROBE && EITHER(HAS_MARLINUI_MENU, HAS_TFT_LVGL_UI)
-  #define PROBE_OFFSET_WIZARD       // Add a Probe Z Offset calibration option to the LCD menu
+  //#define PROBE_OFFSET_WIZARD       // Add a Probe Z Offset calibration option to the LCD menu
   #if ENABLED(PROBE_OFFSET_WIZARD)
     /**
      * Enable to init the Probe Z-Offset when starting the Wizard.
@@ -2582,6 +2580,8 @@
 // The value of BLOCK_BUFFER_SIZE must be a power of 2 (e.g., 8, 16, 32)
 #if BOTH(SDSUPPORT, DIRECT_STEPPING)
   #define BLOCK_BUFFER_SIZE  8
+#elif ALL(SPACE_SAVER_2560, INPUT_SHAPING)
+  #define BLOCK_BUFFER_SIZE 16
 #elif ENABLED(SDSUPPORT)
   #define BLOCK_BUFFER_SIZE 32
 #else
@@ -3030,11 +3030,7 @@
       
       #define Z_CURRENT_HOME  Z_CURRENT
       
-      #if ENABLED(ENDER5_NEW_LEADSCREW) && (ENABLED(EZBOARD) || ENABLED(EZBOARD_V2))
-        #define Z_MICROSTEPS 8
-      #else
-        #define Z_MICROSTEPS 16
-      #endif
+      #define Z_MICROSTEPS 16
       
       #if ENABLED(SOVOL_SV06)
         #define Z_RSENSE         0.15

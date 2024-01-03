@@ -1,15 +1,30 @@
-TH3D_Unified2_CrealityV427/Firmware/.pio/
-TH3D_Unified2_CrealityV427/Firmware/.vscode/
-TH3D_Unified2_CrealityV427/Firmware/buildroot/
-TH3D_Unified2_CrealityV427/Firmware/ini/
-TH3D_Unified2_CrealityV427/Firmware/docs/
-TH3D_Unified2_CrealityV427/Firmware/Marlin/src/
-TH3D_Unified2_CrealityV427/Firmware/Marlin/stock_marlin_files/
-TH3D_Unified2_CrealityV427/Install Guides and STL Files.txt
-TH3D_Unified2_CrealityV427/README.md
+TH3D_Unified2_CrealityV427/Binaries/
 TH3D_Unified2_CrealityV427/Firmware/.editorconfig
 TH3D_Unified2_CrealityV427/Firmware/.gitattributes
 TH3D_Unified2_CrealityV427/Firmware/.gitignore
+TH3D_Unified2_CrealityV427/Firmware/.pio/
+TH3D_Unified2_CrealityV427/Firmware/.vscode/
+TH3D_Unified2_CrealityV427/Firmware/2.1.2 Update Notes.md
+TH3D_Unified2_CrealityV427/Firmware/buildroot/
+TH3D_Unified2_CrealityV427/Firmware/config/README.md
+TH3D_Unified2_CrealityV427/Firmware/CoreFilesChangeList.md
+TH3D_Unified2_CrealityV427/Firmware/docker/
+TH3D_Unified2_CrealityV427/Firmware/docs/
+TH3D_Unified2_CrealityV427/Firmware/How to Check Firmware Version.txt
+TH3D_Unified2_CrealityV427/Firmware/ini/
+TH3D_Unified2_CrealityV427/Firmware/Marlin/_Bootscreen.h
+TH3D_Unified2_CrealityV427/Firmware/Marlin/Configuration_speed.h
+TH3D_Unified2_CrealityV427/Firmware/Marlin/lib/readme.txt
+TH3D_Unified2_CrealityV427/Firmware/Marlin/Makefile
+TH3D_Unified2_CrealityV427/Firmware/Marlin/src/
+TH3D_Unified2_CrealityV427/Firmware/Marlin/_Statusscreen.h
+TH3D_Unified2_CrealityV427/Firmware/Marlin/stock_marlin_files/
+TH3D_Unified2_CrealityV427/Firmware/Marlin/V42X_BLTouchWiring_TeachingTech.jpg
+TH3D_Unified2_CrealityV427/Gcode Files/EZABL Starting Gcode.txt
+TH3D_Unified2_CrealityV427/Install Guides and STL Files.txt
+TH3D_Unified2_CrealityV427/Firmware/KnownBugs.md
+TH3D_Unified2_CrealityV427/README.md
+TH3D_Unified2_CrealityV427/LCD Firmware/DWIN DACAI Color LCDs/HOW TO UPDATE.txt
 TH3D_Unified2_CrealityV427/Firmware/LICENSE
 TH3D_Unified2_CrealityV427/Firmware/Makefile
 *.ini
@@ -18,17 +33,3 @@ TH3D_Unified2_CrealityV427/Firmware/Makefile
 *.py
 *.yml
 *.zip
-TH3D_Unified2_CrealityV427/Firmware/Marlin/_Bootscreen.h
-TH3D_Unified2_CrealityV427/Firmware/docker/Dockerfile
-TH3D_Unified2_CrealityV427/Firmware/KnownBugs.md
-TH3D_Unified2_CrealityV427/Firmware/2.1.2 Update Notes.md
-TH3D_Unified2_CrealityV427/Firmware/CoreFilesChangeList.md
-TH3D_Unified2_CrealityV427/Firmware/How to Check Firmware Version.txt
-TH3D_Unified2_CrealityV427/Firmware/config/README.md
-TH3D_Unified2_CrealityV427/Firmware/Marlin/_Statusscreen.h
-TH3D_Unified2_CrealityV427/Firmware/Marlin/Configuration_speed.h
-TH3D_Unified2_CrealityV427/Firmware/Marlin/Makefile
-TH3D_Unified2_CrealityV427/Firmware/Marlin/V42X_BLTouchWiring_TeachingTech.jpg
-TH3D_Unified2_CrealityV427/Firmware/Marlin/lib/readme.txt
-TH3D_Unified2_CrealityV427/Gcode Files/EZABL Starting Gcode.txt
-TH3D_Unified2_CrealityV427/LCD Firmware/DWIN DACAI Color LCDs/HOW TO UPDATE.txt
